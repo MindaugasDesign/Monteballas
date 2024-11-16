@@ -1,0 +1,418 @@
+/* Base styles */
+:root {
+  --background-color: #222831;
+  --secondary-color: #e6af2e;
+  --optional-color: rgb(255, 196, 42);
+  --text-color: #ececec;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  width: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #393e46;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+}
+
+/*Nav Bar */
+
+nav {
+  position: relative;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: var(--background-color); /* Dark grey background */
+  width: 100%;
+}
+
+.logo {
+  position: absolute;
+  top: 15px;
+  margin: 0 3%;
+  scale: 1.25;
+  z-index: 1;
+  background-color: var(--background-color);
+  width: 300px;
+  height: 60px;
+  border-radius: 4px;
+}
+
+.logo img {
+  height: 50px; /* Adjust the height as needed */
+  display: block;
+  margin: auto auto;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.link-container {
+  display: fl;
+  width: 50%;
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  color: rgb(255, 196, 42); /* Soft yellow text */
+  text-decoration: none;
+  position: relative; /* Positioning context for the pseudo-element */
+  font-size: large;
+  text-transform: uppercase;
+}
+
+.nav-links a::after {
+  content: ""; /* Create a pseudo-element */
+  position: absolute; /* Position it relative to the parent */
+  left: 0; /* Start at the left of the text */
+  bottom: 0; /* Position at the bottom */
+  width: 100%; /* Cover the full width of the text */
+  height: 2px; /* Height of the underline */
+  background: #ffd95a; /* Color of the underline */
+  transform: scaleX(0); /* Start with scale 0 (invisible) */
+  transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1); /* Scale to full width on hover */
+}
+
+/*Hero*/
+
+#hero {
+  background-image: url("./images/image0.jpeg"); /* Replace with actual background image */
+  background-size: cover;
+  height: 60vh;
+  width: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  padding: 15px;
+}
+
+.main-header {
+  color: var(--optional-color);
+  text-transform: uppercase;
+  line-height: 20px;
+}
+
+.hero-button {
+  padding: 10px 20px;
+  background-color: var(--secondary-color); /* Vivid orange */
+  color: var(--text-color);
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: transform 0.3s ease-in;
+}
+
+.hero-button:hover {
+  background-color: #ff8c00; /* Darker shade of orange */
+  transition: background-color 0.3s ease;
+  transform: scale(1.1);
+}
+
+/* Field Logos */
+
+.field-logos {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.field-logo {
+  display: flex;
+  flex-direction: column; /* Stack the image and text */
+  align-items: center; /* Center items horizontally */
+  width: 150px; /* Adjust based on your layout */
+  text-align: center; /* Center text below logos */
+}
+
+.field-logo:hover {
+  transform: scale(1.1);
+}
+
+.field-logo a {
+  text-decoration: none;
+}
+
+.field-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ensures image fits without distortion */
+  border-radius: 50%; /* Makes the image round */
+}
+
+.field-logo p {
+  margin-top: 10px; /* Space between image and text */
+  color: var(--secondary-color); /* Soft yellow text color */
+  font-size: 18px; /* Adjust the font size as needed */
+}
+
+/* Timer Section */
+
+.countdown-container {
+  display: flex;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+
+.left-panel {
+  background-color: #222831;
+  padding: 20px;
+  text-align: center;
+  flex: 1.5; /* Make the left panel wider */
+  position: relative;
+  clip-path: polygon(0 0, 95% 0, 85% 100%, 0% 100%);
+  z-index: 1; /* Ensure it overlaps the right panel */
+}
+
+.left-panel p {
+  color: var(--text-color);
+  font-size: 1.6em;
+  margin-bottom: 20px;
+}
+
+.left-panel button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.right-panel {
+  background-color: var(--optional-color);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: 1; /* Keep the right panel at standard width */
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 20% 100%);
+  margin-left: -25%; /* Move it slightly under the left panel */
+  z-index: 0; /* Place it below the left panel */
+}
+
+.right-panel p {
+  text-transform: uppercase;
+}
+
+.filler {
+  position: absolute;
+  top: 216px;
+  background-color: #393e46;
+  width: 100%;
+  transform: scale(1.5);
+  padding: 0.5%;
+}
+
+.date {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.countdown {
+  display: flex;
+  gap: 15px;
+}
+
+.time-box {
+  text-align: center;
+  font-size: 2em;
+}
+
+.time-box span {
+  display: block;
+  font-weight: bold;
+  background-color: var(--secondary-color);
+}
+
+.time-box p {
+  font-size: 0.6em;
+  opacity: 0.8;
+}
+
+/*Sponsor Section*/
+
+.sponsor-section {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden; /* Hide overflow to keep background clean */
+  background-color: var(--background-color); /* Dark grey background */
+  padding: 20px 0; /* Padding for top and bottom */
+  height: 125px; /* Set a fixed height for the section */
+}
+
+.sponsor-container {
+  display: flex;
+  gap: 20px; /* Space between logos */
+  position: absolute; /* Absolute positioning for animation */
+  animation: slide 20s linear infinite; /* Animation applied to logos */
+}
+
+.sponsor-container img {
+  height: 50px; /* Adjust the height as needed */
+  width: auto; /* Maintain aspect ratio */
+  border-radius: 50%;
+}
+
+/* Keyframes for scrolling animation */
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 35s slide infinite linear;
+  gap: 20px; /* Space between logos */
+}
+
+.logos-slide img {
+  width: 100px; /* Set a fixed width for all logos */
+  height: 100px; /* Set a fixed height for all logos */
+  object-fit: contain; /* Ensures the image maintains aspect ratio */
+  background-color: var(
+    --optional-color
+  ); /* Background color of logos (you can change this) */
+  padding: 10px; /* Adds some space around the image */
+  border-radius: 8px; /* Optional: Adds rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow effect */
+}
+
+/*Contacts and Newsletter*/
+
+.contacts-newsletter {
+  display: flex; /* Flexbox layout for alignment */
+  justify-content: space-around; /* Space out left and right sides */
+  padding: 20px; /* Padding for the section */
+  background-color: #393e46; /* Light cream background */
+}
+
+.contact-info {
+  display: flex; /* Flexbox for aligning logo and text */
+  align-items: center; /* Center items vertically */
+  width: 50%;
+}
+
+.company-logo {
+  width: 80px; /* Set a width for the logo */
+  height: 80px; /* Set a height for the logo */
+  border-radius: 50%; /* Makes the image round */
+  margin-right: 20px; /* Space between logo and text */
+}
+
+.contact-details p {
+  margin: 5px 0; /* Margin for spacing between paragraphs */
+  color: var(--text-color); /* Dark grey text color */
+}
+
+.newsletter {
+  max-width: 300px; /* Set max width for newsletter section */
+}
+
+.newsletter input {
+  width: 100%; /* Full width input */
+  padding: 10px; /* Padding for input */
+  margin-bottom: 10px; /* Space below input */
+  border: 1px solid #4c3d3d; /* Dark grey border */
+  border-radius: 5px; /* Slightly rounded corners */
+  background-color: var(--text-color);
+}
+
+.newsletter button {
+  padding: 10px; /* Padding for button */
+  background-color: var(--secondary-color); /* Soft yellow button */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Slightly rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.newsletter p {
+  margin-top: 10px; /* Space above the privacy policy text */
+  color: var(--text-color); /* Dark grey text color */
+}
+
+.policy {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+/* Footer */
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--background-color);
+  flex-wrap: wrap;
+}
+
+.footer-text {
+  width: 50%;
+  text-align: center;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+.social-links img {
+  width: 24px;
+  height: auto;
+  margin-left: 10px;
+}
+/* For Chrome, Safari, and Edge */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--optional-color); /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--background-color); /* Thumb color */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--background-color); /* Thumb color on hover */
+}
